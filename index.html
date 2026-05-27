@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World - Python + HTML</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .mensagem {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2em;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .python-icon {
+            font-size: 4em;
+            margin: 20px 0;
+        }
+        
+        .info {
+            background: #f0f0f0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin: 10px;
+        }
+        
+        button:hover {
+            transform: scale(1.05);
+        }
+        
+        input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        
+        .footer {
+            margin-top: 20px;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .mensagem {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="python-icon">
+            🐍
+        </div>
+        
+        <h1>Python + Flask + HTML</h1>
+        
+        <div class="mensagem">
+            {{ mensagem }}
+        </div>
+        
+        <div class="info">
+            <strong>🎉 Servidor Python rodando!</strong><br>
+            Esta mensagem foi gerada pelo backend Python<br>
+            e exibida no frontend HTML!
+        </div>
+        
+        <div>
+            <p>Digite seu nome para uma saudação personalizada:</p>
+            <input type="text" id="nome" placeholder="Seu nome aqui...">
+            <button onclick="saudacaoPersonalizada()">Saudar!</button>
+        </div>
+        
+        <div class="footer">
+            🚀 Aplicação web construída com Python Flask<br>
+            📡 Servidor rodando em http://localhost:5000
+        </div>
+    </div>
+    
+    <script>
+        function saudacaoPersonalizada() {
+            const nome = document.getElementById('nome').value;
+            if (nome.trim() === '') {
+                alert('Por favor, digite seu nome!');
+                return;
+            }
+            
+            // Redireciona para a rota personalizada
+            window.location.href = `/${nome}`;
+        }
+    </script>
+</body>
+</html>
